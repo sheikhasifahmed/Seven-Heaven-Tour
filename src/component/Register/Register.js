@@ -3,8 +3,11 @@ import { Link } from "react-router-dom";
 import { useHistory, useLocation } from "react-router";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { Button, Form } from "react-bootstrap";
+import useFirebase from "../../Firebase/useFirebase";
 
 const Register = () => {
+  const { signWithGoogle, registerWithEmail, updateUserName } = useFirebase();
+
   const history = useHistory();
   const location = useLocation();
   const redirect_uri = location.state?.from || "/home";
@@ -12,13 +15,10 @@ const Register = () => {
   const [password, setPassword] = useState("");
   const [name, setName] = useState("");
 
-  // const { signWithGoogle, registerWithEmail, updateUserName } = useFirebase();
-
   const googleLogin = () => {
-    // signWithGoogle().then((result) => {
-    //   history.push(redirect_uri);
-    // });
-    console.log("login successful");
+    signWithGoogle().then((result) => {
+      history.push(redirect_uri);
+    });
   };
 
   const handleEmail = (e) => {
@@ -32,18 +32,22 @@ const Register = () => {
     setName(e.target.value);
   };
 
-  // const updateName = () => {
-  //   updateUserName(name);
-  // };
+  const updateName = () => {
+    updateUserName(name);
+  };
 
   const register = (e) => {
-    // e.preventDefault();
-    // registerWithEmail(email, password).then(() => {
-    //   updateName();
-    //   history.push("/home");
-    //   window.location.reload();
-    // });
-    console.log("login successful");
+    e.preventDefault();
+    registerWithEmail(email, password)
+      .then(() => {
+        updateName();
+        history.push("/home");
+        window.location.reload();
+        console.log("register successful");
+      })
+      .catch((error) => console.log(error));
+
+    console.log("button clicked", email, password);
   };
 
   return (

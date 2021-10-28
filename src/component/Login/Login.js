@@ -1,16 +1,18 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { useHistory, useLocation } from "react-router";
 import "bootstrap/dist/css/bootstrap.min.css";
 
 import { Button, Form } from "react-bootstrap";
+import useFirebase from "../../Firebase/useFirebase";
 
 const Login = () => {
+  const { signWithGoogle, loginWithEmail } = useFirebase();
+
   const history = useHistory();
   const location = useLocation();
   const redirect_uri = location.state?.from || "/home";
 
-  // const { signWithGoogle ,loginWithEmail } = useFirebase();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
@@ -22,17 +24,16 @@ const Login = () => {
   };
 
   const login = (e) => {
-    // e.preventDefault();
-    // loginWithEmail(email, password).then((userCredential) => {
-    //   history.push(redirect_uri);
-    // });
-    console.log("login successful");
+    e.preventDefault();
+    loginWithEmail(email, password).then((userCredential) => {
+      history.push(redirect_uri);
+    });
   };
 
   const googleLogin = () => {
-    // signWithGoogle().then((result) => {
-    //   history.push(redirect_uri);
-    // });
+    signWithGoogle().then((result) => {
+      history.push(redirect_uri);
+    });
     console.log("login successful");
   };
 
