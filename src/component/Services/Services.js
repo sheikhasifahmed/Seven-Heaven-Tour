@@ -15,6 +15,7 @@ const Services = () => {
 
   return (
     <div
+      id="services"
       style={{
         padding: "30px 60px",
       }}
