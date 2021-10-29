@@ -1,6 +1,11 @@
-/* .App {
-  text-align: center;
-} */
+.App {
+  /* text-align: center; */
+
+  background-color: rgba(169, 188, 206, 0.342);
+}
+
+body {
+}
 
 .inp {
   width: 500px;
@@ -44,16 +49,17 @@
 .single {
   background-color: lightcyan;
   padding: 10px;
-  box-shadow: gray 10px 10px 5px;
+  box-shadow: rgba(128, 128, 128, 0.452) 10px 10px 5px;
   border-radius: 10px;
 }
 
 .banner {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  margin-bottom: 100px;
-  background-color: darkslateblue;
+  margin-bottom: 20px;
+  background-color: lightseagreen;
   padding-top: 80px;
+  padding: 0 100px;
 }
 
 .banner img {
@@ -63,4 +69,52 @@
 .banner-text {
   padding: 50px;
   color: whitesmoke;
+}
+
+.cont {
+  margin: 10px 30px;
+  padding: 20px;
+
+  border-radius: 5px;
+  background-color: white;
+}
+
+.clr {
+  color: grey;
+  font-weight: 900;
+}
+
+.form-style {
+  display: flex;
+  flex-direction: column;
+
+  padding: 30px;
+}
+
+.form-style input {
+  margin-bottom: 20px;
+}
+
+.top-space {
+  padding-top: 100px;
+}
+
+@media (max-width: 500px) {
+  .banner {
+    grid-template-columns: 1fr;
+    /* margin-bottom: 20px;
+    
+    padding-top: 80px; */
+    padding: 0;
+  }
+  .cont {
+    margin: 10px 0px;
+    padding: 0px;
+  }
+  .grid {
+    grid-template-columns: 1fr;
+  }
+  .top-space {
+    padding-top: 150px;
+  }
 }

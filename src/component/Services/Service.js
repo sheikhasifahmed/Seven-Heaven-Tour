@@ -2,9 +2,15 @@ import React from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { Button } from "react-bootstrap";
 
-const Service = (props) => {
-  const { PackageName, Time, Expense, image, Type } = props.pack;
+import { useHistory } from "react-router";
 
+const Service = (props) => {
+  const { _id, PackageName, Time, Expense, image, Type } = props.pack;
+  const history = useHistory();
+
+  const handleBook = () => {
+    history.push(`/place-order/${_id}`);
+  };
   return (
     <div className="row single">
       <div className="col-lg-6 me-auto">
@@ -26,7 +32,9 @@ const Service = (props) => {
           Expense: ${Expense}
         </h5>
         <div className="mt-3">
-          <Button variant="outline-primary">Book Now</Button>
+          <Button variant="outline-primary" onClick={handleBook}>
+            Book Now
+          </Button>
         </div>
       </div>
     </div>

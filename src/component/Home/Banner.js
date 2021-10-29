@@ -3,16 +3,10 @@ import bannerPic from "../../images/bannerPic.png";
 
 import "bootstrap/dist/css/bootstrap.min.css";
 import { Button } from "react-bootstrap";
-import { useHistory } from "react-router";
+
 import { HashLink } from "react-router-hash-link";
 
 const Banner = () => {
-  const history = useHistory();
-
-  const handleAbout = () => {
-    history.push("/aboutUs");
-  };
-
   return (
     <div className="banner">
       <div className="mx-auto my-auto">
@@ -26,10 +20,12 @@ const Banner = () => {
           wherever your dreams go
         </h3>
         <div className="d-flex justify-content-start">
-          <Button className="m-3" variant="outline-light" onClick={handleAbout}>
-            About Us
-          </Button>
-          <HashLink to="/home#services">
+          <HashLink to="#about">
+            <Button className="m-3" variant="outline-light">
+              About Us
+            </Button>
+          </HashLink>
+          <HashLink to="#services">
             <Button className="m-3" variant="outline-light">
               Services
             </Button>

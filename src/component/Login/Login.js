@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { useHistory, useLocation } from "react-router";
 import "bootstrap/dist/css/bootstrap.min.css";
-
+import icon from "../../images/google.ico";
 import { Button, Form } from "react-bootstrap";
 import useFirebase from "../../Firebase/useFirebase";
 
@@ -38,8 +38,8 @@ const Login = () => {
   };
 
   return (
-    <div style={{ paddingTop: "100px" }} className="px-5 row">
-      <div className="col-lg-6 mx-auto">
+    <div className="row top-space">
+      <div className="col-lg-6 col-12 mx-auto">
         <div>
           <h5 className="text-start">
             Login your account with email & password
@@ -87,8 +87,7 @@ const Login = () => {
           </h3>
 
           <Button onClick={googleLogin} variant="outline-success">
-            {/* <img width="20" src={icon} alt="" /> */}
-            Login With Google
+            <img width="20" src={icon} alt="" /> Login With Google
           </Button>
         </div>
       </div>

@@ -13,8 +13,7 @@ import PrivateRoute from "./component/PrivateRoute/PrivateRoute";
 import Register from "./component/Register/Register";
 import Service from "./component/Services/Service";
 
-import Services from "./component/Services/Services";
-import MangaeServices from "./component/Manage Services/MangaeServices";
+import ManageBookings from "./component/Manage Bookings/ManageBookings";
 
 function App() {
   return (
@@ -28,19 +27,17 @@ function App() {
           <Route exact path="/">
             <Home></Home>
           </Route>
-          <Route path="/services">
-            <Services></Services>
-          </Route>
-          <Route path="/add-service">
+
+          <Route path="/add-package">
             <AddService></AddService>
           </Route>
-          <Route path="/manage-services">
-            <MangaeServices></MangaeServices>
+          <Route path="/bookings">
+            <ManageBookings></ManageBookings>
           </Route>
-          <PrivateRoute path="/place-order">
+          <PrivateRoute path="/place-order/:_id">
             <PlaceOrder></PlaceOrder>
           </PrivateRoute>
-          <PrivateRoute path="/add-service">
+          <PrivateRoute path="/add-package">
             <AddService></AddService>
           </PrivateRoute>
           <Route path="/login">
@@ -50,7 +47,7 @@ function App() {
             <Register></Register>
           </Route>
 
-          <PrivateRoute exact path="/service/:serviceName">
+          <PrivateRoute exact path="/package/:packageName">
             <Service></Service>
           </PrivateRoute>
           <Route to="*">

@@ -13,34 +13,30 @@ const Header = () => {
   return (
     <div className="header">
       <nav className="row">
-        <div className="col-lg-7 d-flex justify-content-between">
+        <div className="col-lg-6 col-12 d-flex justify-content-between">
           <NavLink to="/home" className="navstyle" activeStyle={navact}>
             Home
           </NavLink>
           <HashLink
-            to="/Home#services"
+            to="/Home#packages"
             className="navstyle"
             activeStyle={navact}
           >
-            Services
+            Packages
           </HashLink>
 
-          <NavLink to="/place-order" className="navstyle" activeStyle={navact}>
+          {/* <NavLink to="/place-order" className="navstyle" activeStyle={navact}>
             Place Order
+          </NavLink> */}
+          <NavLink to="/add-package" className="navstyle" activeStyle={navact}>
+            Add Package
           </NavLink>
-          <NavLink to="/add-service" className="navstyle" activeStyle={navact}>
-            Add Service
-          </NavLink>
-          <NavLink
-            to="/manage-services"
-            className="navstyle"
-            activeStyle={navact}
-          >
-            Manage Services
+          <NavLink to="/bookings" className="navstyle" activeStyle={navact}>
+            Manage Bookings
           </NavLink>
         </div>
 
-        <div className="col-lg-5">
+        <div className="col-lg-6 col-12">
           {user.email ? (
             <div className="d-flex justify-content-end align-items-center">
               <div className="pe-2" style={{ fontSize: "large" }}>

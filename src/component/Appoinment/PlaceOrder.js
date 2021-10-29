@@ -1,78 +1,47 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
-import { Button, Col, Form, Row } from "react-bootstrap";
+import { useHistory, useParams } from "react-router";
+import useFirebase from "../../Firebase/useFirebase";
+import { Button } from "react-bootstrap";
 
 const PlaceOrder = () => {
+  const { _id } = useParams();
+  const [booked, setBooked] = useState({});
+  const { user } = useFirebase();
+  const { displayName, email } = user;
+  useEffect(() => {
+    fetch(`https://tourism-app-backend.herokuapp.com/place-order/${_id}`)
+      .then((res) => res.json())
+      .then((data) => setBooked(data));
+  }, []);
+  const history = useHistory();
+  const { PackageName, Expense } = booked;
+
+  const handlePost = () => {
+    let orderData = {
+      userName: displayName,
+      userEmail: email,
+      bookedPackage: PackageName,
+      status: "pending",
+    };
+    fetch("https://tourism-app-backend.herokuapp.com/place-order", {
+      method: "POST",
+      headers: { "content-type": "application/json" },
+      body: JSON.stringify(orderData),
+    }).then(() => {
+      alert("Congrates! You have successfully booked your tour package");
+      history.push("/");
+    });
+  };
+
   return (
-    <div style={{ paddingTop: "100px" }}>
-      <div className="mx-auto w-50">
-        <h3 className="mb-5">
-          Please fill up the form to apply for an appoinment
-        </h3>
-        <Form>
-          <Row className="mb-3">
-            <Form.Group as={Col} controlId="formGridName">
-              <Form.Label>Patient Name</Form.Label>
-              <Form.Control type="text" placeholder="Patient Name" />
-            </Form.Group>
-          </Row>
-          <Row className="mb-3">
-            <Form.Group as={Col} controlId="formGridAge">
-              <Form.Label>Patient Age</Form.Label>
-              <Form.Control type="number" placeholder="Patient Age" />
-            </Form.Group>
-            <Form.Group as={Col} controlId="formGridGender">
-              <Form.Label>Patient Gender</Form.Label>
-              <Form.Select defaultValue="">
-                <option>Male</option>
-                <option>Female</option>
-                <option>Other</option>
-              </Form.Select>
-            </Form.Group>
-          </Row>
+    <div className="top-space" style={{ textAlign: "center" }}>
+      <h3>Welcome {displayName}</h3>
+      <h3>Your Email {email}</h3>
 
-          <Form.Group className="mb-3" controlId="formGridAddress1">
-            <Form.Label>Current Address</Form.Label>
-            <Form.Control placeholder="example: 1234 Main St" />
-          </Form.Group>
-          <Form.Group className="mb-3" controlId="formGridEmail">
-            <Form.Label>Email (optional)</Form.Label>
-            <Form.Control placeholder="Enter email address" />
-          </Form.Group>
-
-          <Row className="mb-3">
-            <Form.Group as={Col} controlId="formGridPhone">
-              <Form.Label>Cotact Number</Form.Label>
-              <Form.Control type="number" />
-            </Form.Group>
-
-            <Form.Group as={Col} controlId="formGridService">
-              <Form.Label>Select the Service</Form.Label>
-              <Form.Select defaultValue="Choose...">
-                <option>Choose...</option>
-                <option>Dental Care</option>
-                <option>Padiatric (child)</option>
-                <option>Cardiac treatment</option>
-                <option>Diagnosis</option>
-                <option>Other</option>
-                <option>...</option>
-              </Form.Select>
-            </Form.Group>
-            <Form.Group as={Col} controlId="formGridShift">
-              <Form.Label>Choose Shift</Form.Label>
-              <Form.Select defaultValue="Choose...">
-                <option>Morning</option>
-                <option>Afternoon</option>
-                <option>Evening</option>
-              </Form.Select>
-            </Form.Group>
-          </Row>
-
-          <Button variant="primary" type="submit">
-            Submit
-          </Button>
-        </Form>
-      </div>
+      <h3>You requested package name : {PackageName}</h3>
+      <h3> Total expense: ${Expense}</h3>
+      <Button onClick={handlePost}>Confirm Booking</Button>
     </div>
   );
 };

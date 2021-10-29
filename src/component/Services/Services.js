@@ -9,18 +9,20 @@ const Services = () => {
       .then((res) => res.json())
       .then((data) => {
         setPacks(data);
-        console.log(data);
       });
   }, []);
 
   return (
     <div
-      id="services"
+      id="packages"
+      className="cont"
       style={{
-        padding: "30px 60px",
+        padding: "20px 30px",
       }}
     >
-      <h2>---Our Services--</h2>
+      <h2 style={{ textAlign: "center" }} className="mb-5 clr">
+        ---Our Tour Packages--
+      </h2>
       <div className="grid">
         {packs.map((p) => (
           <Service pack={p}></Service>

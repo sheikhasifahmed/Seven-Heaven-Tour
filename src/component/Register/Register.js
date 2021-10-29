@@ -4,6 +4,7 @@ import { useHistory, useLocation } from "react-router";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { Button, Form } from "react-bootstrap";
 import useFirebase from "../../Firebase/useFirebase";
+import icon from "../../images/google.ico";
 
 const Register = () => {
   const { signWithGoogle, registerWithEmail, updateUserName } = useFirebase();
@@ -51,8 +52,8 @@ const Register = () => {
   };
 
   return (
-    <div className="row" style={{ paddingTop: "100px" }}>
-      <div className="col-lg-6 mx-auto ">
+    <div className="row top-space">
+      <div className="col-lg-6 col-12 mx-auto ">
         <div>
           <h5 className="text-start">
             Create an account with Email & password
@@ -106,8 +107,7 @@ const Register = () => {
             --------OR------- <br />
           </h3>
           <Button onClick={googleLogin} variant="outline-success">
-            {/* <img width="20" src={icon} alt="" /> */}
-            Login with Google
+            <img width="20" src={icon} alt="" /> Login with Google
           </Button>
         </div>
       </div>
