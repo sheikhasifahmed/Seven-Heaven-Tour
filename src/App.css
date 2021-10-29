@@ -33,3 +33,17 @@
   position: fixed;
   width: 100%;
 }
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-column-gap: 30px;
+  grid-row-gap: 30px;
+}
+
+.single {
+  background-color: lightcyan;
+  padding: 10px;
+  box-shadow: gray 10px 10px 5px;
+  border-radius: 10px;
+}
