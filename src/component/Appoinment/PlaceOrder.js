@@ -35,13 +35,35 @@ const PlaceOrder = () => {
   };
 
   return (
-    <div className="top-space" style={{ textAlign: "center" }}>
-      <h3>Welcome {displayName}</h3>
-      <h3>Your Email {email}</h3>
-
-      <h3>You requested package name : {PackageName}</h3>
-      <h3> Total expense: ${Expense}</h3>
-      <Button onClick={handlePost}>Confirm Booking</Button>
+    <div className="top-space">
+      <div className="t-order">
+        <h3>Booking Request</h3>
+        <table className="my-4 w-100">
+          <tbody>
+            <tr>
+              <td>Name</td>
+              <td>{displayName}</td>
+            </tr>
+            <tr>
+              <td>Email</td>
+              <td>{email}</td>
+            </tr>
+            <tr>
+              <td>Package Name</td>
+              <td>{PackageName}</td>
+            </tr>
+            <tr>
+              <td>Total Expense</td>
+              <td>${Expense}</td>
+            </tr>
+          </tbody>
+        </table>
+        <div style={{ textAlign: "center" }}>
+          <Button variant="outline-success" onClick={handlePost}>
+            Confirm Booking
+          </Button>
+        </div>
+      </div>
     </div>
   );
 };

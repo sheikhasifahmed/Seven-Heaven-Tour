@@ -22,7 +22,7 @@ const Header = () => {
             className="navstyle"
             activeStyle={navact}
           >
-            Packages
+            Tour Packages
           </HashLink>
 
           {/* <NavLink to="/place-order" className="navstyle" activeStyle={navact}>
@@ -34,6 +34,13 @@ const Header = () => {
           <NavLink to="/bookings" className="navstyle" activeStyle={navact}>
             Manage Bookings
           </NavLink>
+          {user.email ? (
+            <NavLink className="navstyle" activeStyle={navact} to="my-bookings">
+              My Bookings
+            </NavLink>
+          ) : (
+            <div></div>
+          )}
         </div>
 
         <div className="col-lg-6 col-12">

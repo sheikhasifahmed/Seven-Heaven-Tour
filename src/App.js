@@ -15,6 +15,8 @@ import Service from "./component/Services/Service";
 
 import ManageBookings from "./component/Manage Bookings/ManageBookings";
 
+import MyBookings from "./component/MyBookings/MyBookings";
+
 function App() {
   return (
     <div className="App">
@@ -28,18 +30,19 @@ function App() {
             <Home></Home>
           </Route>
 
-          <Route path="/add-package">
-            <AddService></AddService>
-          </Route>
-          <Route path="/bookings">
-            <ManageBookings></ManageBookings>
-          </Route>
-          <PrivateRoute path="/place-order/:_id">
-            <PlaceOrder></PlaceOrder>
-          </PrivateRoute>
           <PrivateRoute path="/add-package">
             <AddService></AddService>
           </PrivateRoute>
+          <PrivateRoute path="/bookings">
+            <ManageBookings></ManageBookings>
+          </PrivateRoute>
+          <PrivateRoute path="/my-bookings">
+            <MyBookings></MyBookings>
+          </PrivateRoute>
+          <PrivateRoute path="/place-order/:_id">
+            <PlaceOrder></PlaceOrder>
+          </PrivateRoute>
+
           <Route path="/login">
             <Login></Login>
           </Route>
