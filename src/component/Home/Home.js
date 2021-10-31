@@ -3,7 +3,6 @@ import Services from "../Services/Services";
 import About from "./About";
 import Banner from "./Banner";
 import Manage from "./Manage";
-import RateUs from "./RateUs";
 
 const Home = () => {
   return (
