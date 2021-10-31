@@ -1,7 +1,6 @@
 import React from "react";
 import tour from "../../images/Tour.jpg";
 import "bootstrap/dist/css/bootstrap.min.css";
-import { Link } from "react-router-dom";
 
 const About = () => {
   return (

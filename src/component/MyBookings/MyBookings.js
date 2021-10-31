@@ -6,7 +6,7 @@ const MyBookings = () => {
   const [bookings, setBookings] = useState([]);
   const { user } = useFirebase();
   console.log(user);
-  const { email } = user;
+  const { email, displayName } = user;
   useEffect(() => {
     if (email) {
       fetch(`https://tourism-app-backend.herokuapp.com/my-bookings/${email}`)
@@ -31,11 +31,14 @@ const MyBookings = () => {
 
   return (
     <div className="top-space">
-      <div className="t-order w-100" style={{ marginBottom: "150px" }}>
-        <h3>Manage All Bookings as Admin </h3>
-        <table className="my-4 w-100 table-responsive">
+      <div
+        className="t-order w-100 table-responsive"
+        style={{ marginBottom: "150px" }}
+      >
+        <h3 className="clr text-center">Your Bookings</h3>
+        <table className="my-4 w-100 ">
           <thead>
-            <th>Booking No.</th>
+            {/* <th>Booking No.</th> */}
             <th>Booking Id</th>
             <th>Tourist Name</th>
             <th>Tour Package</th>
@@ -45,8 +48,10 @@ const MyBookings = () => {
           <tbody>
             {bookings.map((b) => (
               <tr>
-                <td>{bookings.indexOf(b) + 1}</td>
-                <td>{b._id}</td>
+                {/* <td>{bookings.indexOf(b) + 1}</td> */}
+                <td>
+                  <small>{b._id}</small>
+                </td>
 
                 <td>{b.userName}</td>
                 <td>{b.bookedPackage}</td>

@@ -8,7 +8,7 @@ import { HashLink } from "react-router-hash-link";
 
 const Banner = () => {
   return (
-    <div className="banner">
+    <div className="banner" id="top">
       <div className="mx-auto my-auto">
         <img src={bannerPic} alt="" />
       </div>

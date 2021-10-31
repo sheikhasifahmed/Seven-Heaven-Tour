@@ -20,14 +20,25 @@ const Services = () => {
         padding: "20px 30px",
       }}
     >
-      <h2 style={{ textAlign: "center" }} className="mb-5 clr">
-        ---Our Tour Packages--
-      </h2>
-      <div className="grid">
-        {packs.map((p) => (
-          <Service pack={p}></Service>
-        ))}
-      </div>
+      {packs.length ? (
+        <div>
+          <h2 style={{ textAlign: "center" }} className="mb-5 clr">
+            ---Our Tour Packages--
+          </h2>
+          <div className="grid">
+            {packs.map((p) => (
+              <Service pack={p}></Service>
+            ))}
+          </div>
+        </div>
+      ) : (
+        <div className="loader">
+          <div class="spinner-border" role="status">
+            <span class="sr-only"></span>
+          </div>
+          <h3>Please Wait...</h3>
+        </div>
+      )}
     </div>
   );
 };

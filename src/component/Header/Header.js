@@ -14,14 +14,10 @@ const Header = () => {
     <div className="header">
       <nav className="row">
         <div className="col-lg-6 col-12 d-flex justify-content-between">
-          <NavLink to="/home" className="navstyle" activeStyle={navact}>
+          <NavLink to="/" className="navstyle" activeStyle={navact}>
             Home
           </NavLink>
-          <HashLink
-            to="/Home#packages"
-            className="navstyle"
-            activeStyle={navact}
-          >
+          <HashLink to="#packages" className="navstyle" activeStyle={navact}>
             Tour Packages
           </HashLink>
 
@@ -34,22 +30,13 @@ const Header = () => {
               Add Package
             </NavLink>
           ) : (
-            <div></div>
+            <HashLink to="#about" className="navstyle">
+              About Us
+            </HashLink>
           )}
           {user.email ? (
             <NavLink className="navstyle" activeStyle={navact} to="/bookings">
               Manage All Bookings
-            </NavLink>
-          ) : (
-            <div></div>
-          )}
-          {user.email ? (
-            <NavLink
-              className="navstyle"
-              activeStyle={navact}
-              to="/my-bookings"
-            >
-              My Bookings
             </NavLink>
           ) : (
             <div></div>
@@ -59,6 +46,13 @@ const Header = () => {
         <div className="col-lg-6 col-12">
           {user.email ? (
             <div className="d-flex justify-content-end align-items-center">
+              <NavLink
+                className="navstyle"
+                activeStyle={navact}
+                to="/my-bookings"
+              >
+                My Bookings
+              </NavLink>
               <div className="pe-2" style={{ fontSize: "large" }}>
                 {user.displayName}
               </div>

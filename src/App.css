@@ -76,7 +76,7 @@ body {
   padding: 20px;
 
   border-radius: 5px;
-  background-color: white;
+  background-color: honeydew;
 }
 
 .clr {
@@ -104,11 +104,9 @@ table td {
   padding: 10px;
 }
 
-/* table {
-  width: 100%;
+table {
   text-align: center;
-  overflow-x: scroll;
-} */
+}
 
 table th {
   background-color: lightsalmon;
@@ -128,6 +126,16 @@ table tr:nth-child(2n) {
   margin: 0 auto;
   padding: 30px;
   background-color: white;
+}
+
+.loader {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  /* transform: translate(-50%, -50%); */
+  z-index: 100;
+  backdrop-filter: 3px;
+  color: black;
 }
 
 @media (max-width: 500px) {

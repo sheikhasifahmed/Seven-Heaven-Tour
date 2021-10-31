@@ -42,11 +42,14 @@ const ManageBookings = () => {
 
   return (
     <div className="top-space">
-      <div className="t-order w-100" style={{ marginBottom: "150px" }}>
+      <div
+        className="t-order w-100 table-responsive"
+        style={{ marginBottom: "150px" }}
+      >
         <h3>Manage All Bookings as Admin </h3>
-        <table className="my-4 w-100 table-responsive">
+        <table className="my-4 w-100 ">
           <thead>
-            <th>Booking No.</th>
+            {/* <th>Booking No.</th> */}
             <th>Booking Id</th>
             <th>Tourist Name</th>
             <th>Tour Package</th>
@@ -57,8 +60,10 @@ const ManageBookings = () => {
           <tbody>
             {bookings.map((b) => (
               <tr>
-                <td>{bookings.indexOf(b) + 1}</td>
-                <td>{b._id}</td>
+                {/* <td>{bookings.indexOf(b) + 1}</td> */}
+                <td>
+                  <small>{b._id}</small>
+                </td>
 
                 <td>{b.userName}</td>
                 <td>{b.bookedPackage}</td>
