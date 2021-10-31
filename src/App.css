@@ -138,6 +138,10 @@ table tr:nth-child(2n) {
   color: black;
 }
 
+.big {
+  font-size: xx-large;
+}
+
 @media (max-width: 500px) {
   .banner {
     grid-template-columns: 1fr;
