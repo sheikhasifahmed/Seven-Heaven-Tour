@@ -44,7 +44,7 @@ const ManageBookings = () => {
     <div className="top-space">
       <div className="t-order w-100" style={{ marginBottom: "150px" }}>
         <h3>Manage All Bookings as Admin </h3>
-        <table className="my-4 w-100">
+        <table className="my-4 w-100 table-responsive">
           <thead>
             <th>Booking No.</th>
             <th>Booking Id</th>

@@ -104,9 +104,16 @@ table td {
   padding: 10px;
 }
 
+/* table {
+  width: 100%;
+  text-align: center;
+  overflow-x: scroll;
+} */
+
 table th {
   background-color: lightsalmon;
   padding: 10px;
+  text-align: center;
 }
 
 table tr:nth-child(2n-1) {
