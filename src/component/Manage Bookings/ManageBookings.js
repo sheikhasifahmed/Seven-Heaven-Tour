@@ -20,21 +20,21 @@ const ManageBookings = () => {
       .catch((error) => console.log(error));
   };
 
-  const handleConfirm = (id) => {
-    const confirmed = bookings.find((b) => b._id === id);
+  const handleApprove = (id) => {
+    const Approved = bookings.find((b) => b._id === id);
 
-    confirmed.status = "confirmed";
+    Approved.status = "Approved";
 
     fetch(`https://tourism-app-backend.herokuapp.com/bookings/${id}`, {
       method: "PUT",
       headers: { "content-type": "application/json" },
-      body: JSON.stringify(confirmed),
+      body: JSON.stringify(Approved),
     })
       .then((res) => res.json())
       .then((data) => {
-        if (data.modifiedCount > 0) alert("Booking Confirmed by Admin");
+        if (data.modifiedCount > 0) alert("Booking Approved by Admin");
         const remaining = bookings.filter((b) => b._id !== id);
-        const newBookings = [...remaining, confirmed];
+        const newBookings = [...remaining, Approved];
         setBookings(newBookings);
       })
       .catch((error) => console.log(error));
@@ -64,12 +64,12 @@ const ManageBookings = () => {
                 <td>{b.bookedPackage}</td>
                 <td>{b.status}</td>
                 <td>
-                  {b.status === "confirmed" || (
+                  {b.status === "Approved" || (
                     <Button
-                      onClick={() => handleConfirm(b._id)}
+                      onClick={() => handleApprove(b._id)}
                       variant="outline-success"
                     >
-                      Confirm
+                      Approve
                     </Button>
                   )}
                 </td>

@@ -38,12 +38,10 @@ const Login = () => {
   };
 
   return (
-    <div className="row top-space">
-      <div className="col-lg-6 col-12 mx-auto">
+    <div className="top-space ">
+      <div className="t-order">
         <div>
-          <h5 className="text-start">
-            Login your account with email & password
-          </h5>
+          <h5>Login your account with email & password</h5>
           <Form onSubmit={login} className="form-style   mx-auto">
             <Form.Group className="mb-3" controlId="formBasicEmail">
               <Form.Label>Email address</Form.Label>
@@ -81,7 +79,7 @@ const Login = () => {
           </Form>
         </div>
 
-        <div className="mx-auto my-auto">
+        <div style={{ textAlign: "center" }} className="my-5">
           <h3 className="mt-5 mb-2">
             --------OR------- <br />
           </h3>

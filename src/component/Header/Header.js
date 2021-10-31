@@ -25,17 +25,30 @@ const Header = () => {
             Tour Packages
           </HashLink>
 
-          {/* <NavLink to="/place-order" className="navstyle" activeStyle={navact}>
-            Place Order
-          </NavLink> */}
-          <NavLink to="/add-package" className="navstyle" activeStyle={navact}>
-            Add Package
-          </NavLink>
-          <NavLink to="/bookings" className="navstyle" activeStyle={navact}>
-            Manage Bookings
-          </NavLink>
           {user.email ? (
-            <NavLink className="navstyle" activeStyle={navact} to="my-bookings">
+            <NavLink
+              className="navstyle"
+              activeStyle={navact}
+              to="/add-package"
+            >
+              Add Package
+            </NavLink>
+          ) : (
+            <div></div>
+          )}
+          {user.email ? (
+            <NavLink className="navstyle" activeStyle={navact} to="/bookings">
+              Manage All Bookings
+            </NavLink>
+          ) : (
+            <div></div>
+          )}
+          {user.email ? (
+            <NavLink
+              className="navstyle"
+              activeStyle={navact}
+              to="/my-bookings"
+            >
               My Bookings
             </NavLink>
           ) : (

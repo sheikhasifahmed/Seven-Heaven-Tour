@@ -52,8 +52,8 @@ const Register = () => {
   };
 
   return (
-    <div className="row top-space">
-      <div className="col-lg-6 col-12 mx-auto ">
+    <div className="top-space">
+      <div className="t-order mx-auto ">
         <div>
           <h5 className="text-start">
             Create an account with Email & password
@@ -102,7 +102,7 @@ const Register = () => {
           </Form>
         </div>
 
-        <div className="mt-5">
+        <div style={{ textAlign: "center" }} className="my-5">
           <h3 className="mb-2 mt-5">
             --------OR------- <br />
           </h3>
