@@ -17,9 +17,11 @@ const Register = () => {
   const [name, setName] = useState("");
 
   const googleLogin = () => {
-    signWithGoogle().then((result) => {
-      history.push(redirect_uri);
-    });
+    signWithGoogle()
+      .then((result) => {
+        history.push(redirect_uri);
+      })
+      .catch((error) => alert("Ops! Something went Wrong.."));
   };
 
   const handleEmail = (e) => {
@@ -46,7 +48,7 @@ const Register = () => {
         window.location.reload();
         console.log("register successful");
       })
-      .catch((error) => console.log(error));
+      .catch((error) => alert("Ops! Something went Wrong.."));
 
     console.log("button clicked", email, password);
   };

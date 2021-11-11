@@ -12,11 +12,6 @@ body {
   height: 25px;
 }
 
-.form-style {
-  /* margin-bottom: 50px; */
-  text-align: left;
-}
-
 .navstyle {
   text-decoration: none;
   color: white;
@@ -139,7 +134,7 @@ table tr:nth-child(2n) {
 }
 
 .big {
-  font-size: xx-large;
+  font-size: x-large;
 }
 
 @media (max-width: 500px) {

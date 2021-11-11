@@ -25,16 +25,19 @@ const Login = () => {
 
   const login = (e) => {
     e.preventDefault();
-    loginWithEmail(email, password).then((userCredential) => {
-      history.push(redirect_uri);
-    });
+    loginWithEmail(email, password)
+      .then((userCredential) => {
+        history.push(redirect_uri);
+      })
+      .catch((error) => alert("Ops! Something went Wrong.."));
   };
 
   const googleLogin = () => {
-    signWithGoogle().then((result) => {
-      history.push(redirect_uri);
-    });
-    console.log("login successful");
+    signWithGoogle()
+      .then((result) => {
+        history.push(redirect_uri);
+      })
+      .catch((error) => alert("Ops! Something went Wrong.."));
   };
 
   return (

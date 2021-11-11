@@ -17,7 +17,11 @@ const Header = () => {
           <NavLink to="/" className="navstyle" activeStyle={navact}>
             Home
           </NavLink>
-          <HashLink to="#packages" className="navstyle" activeStyle={navact}>
+          <HashLink
+            to="/home#packages"
+            className="navstyle"
+            activeStyle={navact}
+          >
             Tour Packages
           </HashLink>
 
